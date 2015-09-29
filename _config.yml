@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: My Flatiron Blog # Used in the header and title tags
+subtitle: Experiences of going to the Flatiron School. # A description used in the header
+author: Ho Won Cheng # Your name, for RSS, Copyright, Metadata
 simple_search: https://www.google.com/search
-description:
+description: A student's experiences of the Flatiron School. # A default meta description for your site
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
