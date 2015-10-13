@@ -16,29 +16,19 @@ My answer. No. I didn't really know what was happening behind the scenes and how
 
 But there must be still rules like how I have to use 'HAVING' instead of 'WHILE'!! Well, there is something that we can use in fact, for 'SELECT' statements at least. 'Logical Processing Order' determines the order of which objects are defined and made available to other sections of the 'SELECT' statement.
 
-Logical Processing Order
-
-1 - FROM
-
-2 - ON
-
-3 - JOIN
-
-4 - WHERE
-
-5 - GROUP BY
-
-6 - WITH CUBE or WITH ROLLUP
-
-7 - HAVING
-
-8 - SELECT
-
-9 - DISTINCT
-
-10 - ORDER BY
-
-11 - TOP (LIMIT)
+<ol><strong>Logical Processing Order</strong>
+<li>FROM</li>
+<li>ON</li>
+<li>JOIN</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>WITH CUBE or WITH ROLLUP</li>
+<li>HAVING</li>
+<li>SELECT</li>
+<li>DISTINCT</li>
+<li>ORDER BY</li>
+<li>TOP (LIMIT)</li>
+</ol>
 
 Using the 'Logical Processing Order' for 'SELECT' statements, I was able to break down the task of creating 'SELECT' statements into more managable steps.
 
