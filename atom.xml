@@ -4,7 +4,7 @@
   <title><![CDATA[Afterhours Googling]]></title>
   <link href="http://chenghw.github.io/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-10-13T01:12:17-04:00</updated>
+  <updated>2015-10-13T01:29:54-04:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -28,29 +28,20 @@
 
 <p>But there must be still rules like how I have to use &lsquo;HAVING&rsquo; instead of &lsquo;WHILE&rsquo;!! Well, there is something that we can use in fact, for &lsquo;SELECT&rsquo; statements at least. &lsquo;Logical Processing Order&rsquo; determines the order of which objects are defined and made available to other sections of the &lsquo;SELECT&rsquo; statement.</p>
 
-<p>Logical Processing Order</p>
+<ol><strong>Logical Processing Order</strong>
+<li>FROM</li>
+<li>ON</li>
+<li>JOIN</li>
+<li>WHERE</li>
+<li>GROUP BY</li>
+<li>WITH CUBE or WITH ROLLUP</li>
+<li>HAVING</li>
+<li>SELECT</li>
+<li>DISTINCT</li>
+<li>ORDER BY</li>
+<li>TOP (LIMIT)</li>
+</ol>
 
-<p>1 - FROM</p>
-
-<p>2 - ON</p>
-
-<p>3 - JOIN</p>
-
-<p>4 - WHERE</p>
-
-<p>5 - GROUP BY</p>
-
-<p>6 - WITH CUBE or WITH ROLLUP</p>
-
-<p>7 - HAVING</p>
-
-<p>8 - SELECT</p>
-
-<p>9 - DISTINCT</p>
-
-<p>10 - ORDER BY</p>
-
-<p>11 - TOP (LIMIT)</p>
 
 <p>Using the &lsquo;Logical Processing Order&rsquo; for &lsquo;SELECT&rsquo; statements, I was able to break down the task of creating &lsquo;SELECT&rsquo; statements into more managable steps.</p>
 
@@ -67,7 +58,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[My First Post on Octopress]]></title>
+    <title type="html"><![CDATA[My First Post On Octopress]]></title>
     <link href="http://chenghw.github.io/blog/2015/09/29/my-first-post-on-octopress/"/>
     <updated>2015-09-29T16:53:13-04:00</updated>
     <id>http://chenghw.github.io/blog/2015/09/29/my-first-post-on-octopress</id>
