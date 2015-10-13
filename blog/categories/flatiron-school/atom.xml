@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron&nbsp;school | Afterhours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-10-12T22:25:58-04:00</updated>
+  <updated>2015-10-13T01:09:27-04:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Declarative Languages and Its Logical Processing Order]]></title>
+    <link href="http://chenghw.github.io/blog/2015/10/12/a-declarative-languages-and-its-logical-processing-order/"/>
+    <updated>2015-10-12T23:02:42-04:00</updated>
+    <id>http://chenghw.github.io/blog/2015/10/12/a-declarative-languages-and-its-logical-processing-order</id>
+    <content type="html"><![CDATA[<p>After two intense weeks at Flatiron School learning Ruby, we&rsquo;ve moved onto SQL, a totally different langauge. Where Ruby is an object oriented programming language used in web development, SQL is a declarative language designed to manage and query databases.</p>
+
+<p>The transition for me was very tough going from Ruby to SQL. Ruby being a very literal language where it reacts to everything I type typically the way I would expect. Not to say I don&rsquo;t run into errors, but with tools like Pry and RSpec, debugging is managable. While this do that. For each element do this. The Ruby flow control made sense.</p>
+
+<p>Now for SQL, I read it like any other language I encountered, from beginning to end, top to bottom. It made sense in the beginning, but started to not make sense when I got introduced to aggregate functions. Using a &lsquo;COUNT&rsquo; with a &lsquo;WHERE&rsquo; created errors which is where I learned to implement &lsquo;HAVING&rsquo;. Essentially serving the same purpose as &lsquo;WHERE&rsquo; for the query I was making, but one was necessary for aggregate functions. This sparked my curiosity and I asked myself, do I really know what is happening here?</p>
+
+<p>My answer. No. I didn&rsquo;t really know what was happening behind the scenes and how my queries were being compiled. So I posed the question. If reading the query from beginning to end is not correct, then there must be some sort of order of opperation that SQL follows in reading syntax. But the answer I found was very unsatisfying. SQL is not like any language that I have encountered. SQL is a declarative language. Declarative language syntax is describing what the program should return rather than how this task should be accomplished. In simple terms, you tell SQL what you want and SQL will find a way to get it for you on through its own methods.</p>
+
+<p>But there must be still rules like how I have to use &lsquo;HAVING&rsquo; instead of &lsquo;WHILE&rsquo;!! Well, there is something that we can use in fact, for &lsquo;SELECT&rsquo; statements at least. &lsquo;Logical Processing Order&rsquo; determines the order of which objects are defined and made available to other sections of the &lsquo;SELECT&rsquo; statement.</p>
+
+<p>Logical Processing Order</p>
+
+<p>1 - FROM</p>
+
+<p>2 - ON</p>
+
+<p>3 - JOIN</p>
+
+<p>4 - WHERE</p>
+
+<p>5 - GROUP BY</p>
+
+<p>6 - WITH CUBE or WITH ROLLUP</p>
+
+<p>7 - HAVING</p>
+
+<p>8 - SELECT</p>
+
+<p>9 - DISTINCT</p>
+
+<p>10 - ORDER BY</p>
+
+<p>11 - TOP (LIMIT)</p>
+
+<p>Using the &lsquo;Logical Processing Order&rsquo; for &lsquo;SELECT&rsquo; statements, I was able to break down the task of creating &lsquo;SELECT&rsquo; statements into more managable steps.</p>
+
+<p>Step #1 - Processes 1-3, what tables will I need to join for me to have all the information I need.</p>
+
+<p>Step #2 - Processes 4-7, are there aggregate functions I need to account? If so, then I know I will need a &lsquo;GROUP BY&rsquo;, and if there is conditional logic to account for then I will need to use &lsquo;HAVING&rsquo; instead of &lsquo;WHERE&rsquo;.</p>
+
+<p>Step #3 - Process 8, what variables do I want in my &lsquo;SELECT&rsquo; statement and do I want to rename any with &lsquo;AS&rsquo;?</p>
+
+<p>Step #4 - Processes 9-11, am I looking for the query to output in a specific order or by a limit?</p>
+
+<p>Knowing the control flow and asking the right questions.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My First Post on Octopress]]></title>
