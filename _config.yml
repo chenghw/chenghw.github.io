@@ -4,7 +4,7 @@
 
 url: http://chenghw.github.io
 title: Afterhours Googling # Used in the header and title tags
-subtitle: What I Learn After 6PM. # A description used in the header
+subtitle: What I Learn After 6PM # A description used in the header
 author: Ho Won Cheng # Your name, for RSS, Copyright, Metadata
 simple_search: https://www.google.com/search
 description: A student's experiences of the Flatiron School and what he learns after 6PM through Google. # A default meta description for your site
