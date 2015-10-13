@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Flatiron&nbsp;school | My Flatiron Blog]]></title>
+  <title><![CDATA[Category: Flatiron&nbsp;school | Afterhours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-09-29T16:56:31-04:00</updated>
+  <updated>2015-10-12T22:25:58-04:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -18,7 +18,7 @@
     <link href="http://chenghw.github.io/blog/2015/09/29/my-first-post-on-octopress/"/>
     <updated>2015-09-29T16:53:13-04:00</updated>
     <id>http://chenghw.github.io/blog/2015/09/29/my-first-post-on-octopress</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>Hello World</p>
 ]]></content>
   </entry>
   
