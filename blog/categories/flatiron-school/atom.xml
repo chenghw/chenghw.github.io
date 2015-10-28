@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flatiron&nbsp;school | Afterhours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-10-28T07:08:15-04:00</updated>
+  <updated>2015-10-28T07:12:47-04:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -170,7 +170,8 @@ Does this even show up?
 <h2> & </h2>
 
 
-<pre><code class="ruby & Clarification">[ 'a', 'b', 'c' ].map( &amp;:upcase )
+<pre><code class="ruby & Clarification">sym = :upcase
+[ 'a', 'b', 'c' ].map( &amp;:upcase )
 [ 'a', 'b', 'c' ].map{ |letter| letter.send( sym ) }
 =&gt; ["A", "B", "C"] 
 </code></pre>
