@@ -121,6 +121,7 @@ Does this even show up?
 
 <h2> & </h2>
 ``` ruby & Clarification
+sym = :upcase
 [ 'a', 'b', 'c' ].map( &:upcase )
 [ 'a', 'b', 'c' ].map{ |letter| letter.send( sym ) }
 => ["A", "B", "C"] 
