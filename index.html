@@ -102,6 +102,315 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2015/10/27/procs-and-lambdas/">
+		
+			Procs and Lambdas</a>
+	</h2>
+	<div class="entry-content">
+		<p>I am a big believer in fundamentals and foundation. In grade school I was horrific in Spanish. Being close to failing and having to repeat the previous years Spanish class, my parents sent me to summer school. I learned the fundamentals of the language and went into the following year understanding concepts which I didn't have the tools to comprehend previously.</p>
+
+
+
+
+<p>We were told a quote early on in the semester which has stuck with me. It was along the lines of, "The problem isn't with Rails, but with your Ruby." I took away to truly understand Rails was to truly understand the fundaments and the foundation that Rails was built on.</p>
+
+
+
+
+<p>Before diving into Proc and Lambdas which I saw as one of those fundamentals/building blocks of the Ruby language, we must go over what a Block is first.</p>
+
+
+
+
+<h2>Blocks</h2>
+
+
+<p>A block is a block of code or a code block, thus the name <strong>block</strong>. A list of instructions for your code to follow. Blocks can be identified by do...end or { }. There is a saying in Ruby land that everything in Ruby is an object, however that does not apply here. A block is not an object! Which brings us to procs and lambdas.</p>
+
+
+
+
+<h2>Procs</h2>
+
+
+<p>Proc, stands for <strong>proc</strong>edure, is a block of code which is an object. This means procs can be passed through in method arguments, be something a method returns and have methods called upon them.</p>
+
+
+<figure class='code'><figcaption><span>Creating a proc</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">square</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">square</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Up until now we mostly been using blocks in enumerables. Procs can take the place of blocks in enumerables.</p>
+
+
+<figure class='code'><figcaption><span>Using a proc in an enumerable</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span> <span class="o">].</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">square</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But lets say you don&rsquo;t want to just pass in 1 value. Using an iterator now seems to not be the right tool for the job. There is the call method.</p>
+
+<figure class='code'><figcaption><span>Call method</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span> <span class="mi">15</span> <span class="o">].</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">square</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">225</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'> <span class="n">square</span><span class="o">.</span><span class="n">call</span><span class="p">(</span> <span class="mi">15</span> <span class="p">)</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="mi">225</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Another benefit procs over blocks is that they can be returned.</p>
+
+
+<figure class='code'><figcaption><span>Proc as a return</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Player</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:coins</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>    <span class="vi">@coins</span> <span class="o">=</span> <span class="mi">1000</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Team</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:status</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">result</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">status</span>
+</span><span class='line'>      <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="nb">p</span><span class="o">.</span><span class="n">coins</span> <span class="o">+=</span> <span class="mi">150</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="nb">p</span><span class="o">.</span><span class="n">coins</span> <span class="o">-=</span> <span class="mi">100</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">player1</span> <span class="o">=</span> <span class="no">Player</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">player2</span> <span class="o">=</span> <span class="no">Player</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">team</span> <span class="o">=</span> <span class="no">Team</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">team</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'><span class="nb">proc</span> <span class="o">=</span> <span class="n">team</span><span class="o">.</span><span class="n">result</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">[</span> <span class="n">player1</span><span class="p">,</span> <span class="n">player2</span> <span class="o">].</span><span class="n">each</span><span class="p">(</span><span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="c1">#&lt;Player:0x007f9682936fa0 @coins=1150&gt;, #&lt;Player:0x007f968204d1a0 @coins=1150&gt;]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">player1</span><span class="o">.</span><span class="n">coins</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">1150</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Lambda</h2>
+
+
+<p>A lambda is also a block of code which is an object. This is because a lambda is apart of the Proc class.</p>
+
+
+<figure class='code'><figcaption><span>Creating a lambda</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">woofs</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="s2">&quot;Woof!&quot;</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">woofs</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="s2">&quot;Woof!&quot;</span><span class="o">*</span><span class="n">x</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">&lt;</span><span class="ss">Proc</span><span class="p">:</span><span class="mh">0x007f9683183dc0</span><span class="err">@</span><span class="p">(</span><span class="n">irb</span><span class="p">):</span><span class="mi">152</span> <span class="p">(</span><span class="nb">lambda</span><span class="p">)</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Procs vs Lambdas</h2>
+
+
+<p>1 - Procs and lambdas treat arguments differently. Procs do not check for the correct number or arguments while lambdas do.</p>
+
+
+<figure class='code'><figcaption><span>Argument validation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">hello</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="s2">&quot;Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&quot;</span> <span class="p">}</span>
+</span><span class='line'><span class="n">goodbye</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span> <span class="s2">&quot;Good-bye </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!&quot;</span> <span class="p">}</span>
+</span><span class='line'><span class="n">hello</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;Hello !&quot;</span>
+</span><span class='line'><span class="n">goodbye</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="ss">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">0</span> <span class="k">for</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2 - Proc and lambdas treat returns differently. A return inside a proc will be treated as a return for the entire method which it is inside, while a return inside a lambda will only be treated as the return for inside the lambda.</p>
+
+
+<figure class='code'><figcaption><span>Returns</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">proc_return</span>
+</span><span class='line'>  <span class="nb">proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s2">&quot;Hi from inside the proc!&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Do you see me?&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="nb">proc</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Does this even show up?&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">proc_return</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;Hi from inside the proc!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">lambda_return</span>
+</span><span class='line'>  <span class="nb">lambda</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s2">&quot;Hi from inside the lambda&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Do you see me?&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="nb">lambda</span><span class="o">.</span><span class="n">call</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Does this even show up?&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">lambda_return</span>
+</span><span class='line'><span class="no">Hi</span> <span class="n">from</span> <span class="n">inside</span> <span class="n">the</span> <span class="nb">lambda</span>
+</span><span class='line'><span class="no">Does</span> <span class="n">this</span> <span class="n">even</span> <span class="n">show</span> <span class="n">up?</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2> & </h2>
+
+
+<figure class='code'><figcaption><span>& Clarification</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="o">].</span><span class="n">map</span><span class="p">(</span> <span class="o">&amp;</span><span class="ss">:upcase</span> <span class="p">)</span>
+</span><span class='line'><span class="o">[</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="o">].</span><span class="n">map</span><span class="p">{</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span> <span class="n">letter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span> <span class="n">sym</span> <span class="p">)</span> <span class="p">}</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2> Additional Examples </h2>
+
+
+<figure class='code'><figcaption><span>Examples</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">animal_sounds</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="s1">&#39;cat&#39;</span> <span class="o">=&gt;</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="s2">&quot;Meow&quot;</span><span class="o">*</span><span class="n">x</span><span class="p">},</span>
+</span><span class='line'>  <span class="s1">&#39;dog&#39;</span> <span class="o">=&gt;</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="s2">&quot;Woof&quot;</span><span class="o">*</span><span class="n">x</span><span class="p">},</span>
+</span><span class='line'>  <span class="s1">&#39;pig&#39;</span> <span class="o">=&gt;</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="s2">&quot;Oink&quot;</span><span class="o">*</span><span class="n">x</span><span class="p">},</span>
+</span><span class='line'>  <span class="s1">&#39;bird&#39;</span> <span class="o">=&gt;</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="s2">&quot;Kakaw&quot;</span><span class="o">*</span><span class="n">x</span><span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="n">animal_sounds</span><span class="o">[</span><span class="s1">&#39;bird&#39;</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="s2">&quot;KakawKakaw&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-10-27T09:15:10-04:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/block/'>block</a>, <a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>, <a class='category' href='/blog/categories/lambda/'>lambda</a>, <a class='category' href='/blog/categories/proc/'>proc</a>
+
+</div>
+
+
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2015/10/12/a-declarative-languages-and-its-logical-processing-order/">
 		
 			A Declarative Languages and Its Logical Processing Order</a>
@@ -168,48 +477,6 @@ $(document).ready(
 <div class="tags">
 
 	<a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>, <a class='category' href='/blog/categories/sql/'>sql</a>
-
-</div>
-
-
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2015/09/29/my-first-post-on-octopress/">
-		
-			My First Post on Octopress</a>
-	</h2>
-	<div class="entry-content">
-		<p>Hello World</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-09-29T16:53:13-04:00" pubdate data-updated="true"></time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>
 
 </div>
 
