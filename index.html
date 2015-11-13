@@ -102,6 +102,361 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2015/11/12/javascript-toolbox/">
+		
+			JavaScript Toolbox</a>
+	</h2>
+	<div class="entry-content">
+		<p>Coming from Ruby to JavaScript was more difficult than I thought it would be. The main difference to me: Documentation. Ruby has <a href='https://ruby-doc.org/'>ruby-doc.org</a> which has a well written and well organized dictionary for the entire language. While Javascript, I was primarily looking through <a href='http://www.w3schools.com/js/default.asp'>w3schools</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'>Modzilla&rsquo;s</a> documentation. Both not as well organized compared to Ruby&rsquo;s. A part of my learning process is knowing what is available to me. Nothing I found was to my liking so I decided to gather all the information on the basic methods. What I came up with was surprisingly small. The JavaScript methods library was tiny compared to Ruby. So I compiled most of the methods (ones that I saw useful for me at this moment) for Numbers, Strings and Arrays with definitions and examples along with each.</p>
+
+<table style="width:100%">
+  <strong>Number</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#toString()</td>
+    <td>Returns a string of that number</td>
+    <td>100.toString()<br>#=> "100"</td>
+  </tr>
+  <tr>
+    <td>#toExponential(num=0)</td>
+    <td>Returns the exponential of a float as a string, cannot be an integer (num option of how many decimal places)</td>
+    <td>150.0.toExponential(4)<br>#=> "1.5000e+2"</td>
+  </tr> 
+  <tr>
+    <td>#toFixed(num=0)</td>
+    <td>Returns a string with the decimal places fixed to the num and rounds</td>
+    <td>150.3261.toFixed(2)<br>#=> "150.33"</td>
+  </tr> 
+  <tr>
+    <td>#toPrecision(num=length)</td>
+    <td>Returns a string of the number with a fixed length from num</td>
+    <td>150.3261.toPrecision(2)<br>#=> "1.5e+2"</td>
+  </tr> 
+</table>
+
+
+
+
+<table style="width:100%">
+  <strong>String</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#indexOf(string)</td>
+    <td>Returns the index of the <strong>first</strong> occurrence, returns -1 if none are found</td>
+    <td>'hello'.indexOf('l');<br>#=> 2</td>
+  </tr>
+  <tr>
+    <td>#indexLastOf(string)</td>
+    <td>Returns the index of the <strong>last</strong> occurrence, returns -1 if none are found</td>
+    <td>'welcome'.indexLastOf('e');<br>#=> 6</td>
+  </tr> 
+  <tr>
+    <td>#search(string)</td>
+    <td>Same as <strong>#indexOf(string)</strong> except it allows for the search of regular expressions</td>
+    <td>'t0'.search(/[0-9]/);<br>#=> 1</td>
+  </tr> 
+  <tr>
+    <td>#match(string)</td>
+    <td>Searches a string against a string or regular expression and returns the match in an array</td>
+    <td>'mY'.match(/[A-Z]/);<br>#=> ["Y"]</td>
+  </tr> 
+  <tr>
+    <td>#charAt(num)</td>
+    <td>Returns the character at the num index and returned empty string if out of range</td>
+    <td>'blog'.charAt(2);<br>#=> "o"</td>
+  </tr>
+  <tr>
+    <td>#split('x')</td>
+    <td>Splits string by 'x' into an array</td>
+    <td>'string'.split('');<br>#=> ["s", "t", "r", "i", "n", "g"]</td>
+  </tr>
+  <tr>
+    <td>#concat(*args)</td>
+    <td>Takes in as many string arguments and combines them into one</td>
+    <td>'java'.concat('scr', 'ipt');<br>#=> "javascript"</td>
+  </tr>
+  <tr>
+    <td>#slice(num1, num2)</td>
+    <td>Returns the sting from index num1 to num2 not including num2, can accept negative numbers</td>
+    <td>'table'.slice(1,-1);<br>#=> "abl"</td>
+  </tr>
+  <tr>
+    <td>#substring(num1, num2)</td>
+    <td>Same as <strong>#slice(num1, num2)</strong> except it cannot accept negative numbers</td>
+    <td>'enjoy'.substring(1, 3);<br>#=> "ej"</td>
+  </tr>
+  <tr>
+    <td>#substr(num1, num2)</td>
+    <td>Returns a string where the substring starts at index of num1 to num2 characters</td>
+    <td>'yourself'.substr(1, 4);<br>#=> "ours"</td>
+  </tr>
+  <tr>
+    <td>#replace(string1, string2)</td>
+    <td>Finds and replaces the first instance of string1 with string2, then returns the resulting string</td>
+    <td>'flatiron'.replace('iron', 'school');<br>#=> "flatschool"</td>
+  </tr>
+  <tr>
+    <td>#toUpperCase()</td>
+    <td>Uppercase the entire string</td>
+    <td>'flatiron'.upUpperCase();<br>#=> "FLATIRON"</td>
+  </tr>
+  <tr>
+    <td>#toLowerCase()</td>
+    <td>Lowercase the entire string</td>
+    <td>'FLATIRON'.upUpperCase();<br>#=> "flatiron"</td>
+  </tr>
+  <tr>
+    <td>#trim()</td>
+    <td>Removes white space at the beginning and end of a string</td>
+    <td>'  flatiron?  '.trim()<br>#=> "flatiron?"</td>
+  </tr>
+</table>
+
+
+
+
+<table style="width:100%">
+  <strong>Array</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#concat(*arrs)</td>
+    <td>Join multiple arrays into one</td>
+    <td>[1,2,3].concat([4,5,6], [7,8,9]);<br>#=> [1,2,3,4,5,6,7,8,9]</td>
+  </tr>
+  <tr>
+    <td>#join('x')</td>
+    <td>Joins each array element into a string separated by 'x'</td>
+    <td>['flatiron', 'school'].join(' ');<br>#=> "flatiron school"</td>
+  </tr> 
+  <tr>
+    <td>#indexOf(ele)</td>
+    <td>Search array for the <strong>first</strong> matching element and returns the index, -1 if nothing is found</td>
+    <td>[1,2,3,2].indexOf(2);<br>#=> 1</td>
+  </tr> 
+  <tr>
+    <td>#lastIndexOf(ele)</td>
+    <td>Search array for <strong>last</strong> matching element and returns the index, -1 if nothing is found</td><td>[1,2,3,2].indexOf(2);<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#pop()</td>
+    <td>Removes and returns the last element of the array</td><td>[1,2,3,2].pop();<br>#=> 2</td>
+  </tr> 
+  <tr>
+    <td>#push(ele)</td>
+    <td>Adds element to the end of the array and returns the length of the new array</td><td>['h','e','l','l'].push('o');<br>#=> 5</td>
+  </tr> 
+  <tr>
+    <td>#reverse()</td>
+    <td>Reserve the elements of the array and returns the new array, this is destructive</td>
+    <td>[1,2,3].reverse();<br>#=> [3,2,1]</td>
+  </tr>
+  <tr>
+    <td>#shift()</td>
+    <td>Removes and returns the first element of the array</td>
+    <td>[1,2,3,2].shift();<br>#=> 1</td>
+  </tr>
+  <tr>
+    <td>#unshift()</td>
+    <td>Adds element to the beginning of the array and returns the length of the new array</td>
+    <td>[1,2,3,2].unshift(1);<br>#=> 5</td>
+  </tr>
+  <tr>
+    <td>#sort()</td>
+    <td>Sorts and returns the array, this is destructive</td>
+    <td>[3,2,1].sort();<br>#=> [1,2,3]</td>
+  </tr>
+    <tr>
+    <td>#slice(num1, num2)</td>
+    <td>Starts at index num1 and slices to index num2 not included, and returns the resulting array.</td>
+    <td>[0,1,2,3,4,5].slice(1,3);<br>#=> [1,2]</td>
+  </tr>
+  <tr>
+    <td>#splice(num1, num2, *args)</td>
+    <td>num1 represents the starting point, num2 represents the number of elements to remove and the *args is optional for any additions to be added to the array. Return value is an array of the removed elements</td>
+    <td>["h", "e", "l", "l", "o"].splice(1,2,9,8,7) => ["h", 9, 8, 7, "l", "o"] <br>#=> ["e", "l"]</td>
+  </tr>
+</table>
+
+
+
+
+<table style="width:100%">
+  <strong>Array Enumerable</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#every( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for each element</td>
+    <td>[1,2,3].every( function( element ) { return isFinite( element ) } );<br>#=> true</td>
+  </tr>
+  <tr>
+    <td>#filter( function( element, index, array ) { return condition } )</td>
+    <td>Like #select in Ruby, returns an array with elements who's callback function returned true</td>
+    <td>[1,2,3,4,5].filter( function( element ) { return element > 3 } );<br>#=> [4, 5]</td>
+  </tr> 
+  <tr>
+    <td>#forEach( function( element, index, array ) { do something } )</td>
+    <td>Like #each in Ruby, does something for each element in the array</td>
+    <td>[1,2].forEach( function( element, index, array ) { console.log( element ) } );<br>#=> 1 #=> 2</td>
+  </tr> 
+  <tr>
+    <td>#map( function( element, index, array ) { return something } )</td>
+    <td>Like #each in Ruby, creates an array of same length with returned values</td>
+    <td>[1,2].map( function( element, index, array ){ return element + index } );<br>#=> [1, 3]</td>
+  </tr> 
+  <tr>
+    <td>#reduce( function( previousValue, currentValue, index, array ) { return new previousValue }, initialValue )</td>
+    <td>Similar to #inject in Ruby, iterates through each element where previousValue initially starts off as initialValue and currentValue is the element. The return of the first iteration becomes the new previousValue and so on where the return is the final return.</td>
+    <td>[1,2,3].reduce( function( a, b, index, array ) { return a+b }, 10 );<br>#=> 16</td>
+  </tr> 
+  <tr>
+    <td>#some( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for at least one element</td>
+    <td>[1,2,3].some( function( element ) { return element/2 == 1 } );<br>#=> true</td>
+  </tr> 
+</table>
+
+
+
+
+<table style="width:100%">
+  <strong>Global Methods</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#eval()</td>
+    <td>Evaluates and executes a string</td>
+    <td>eval('1+1');<br>#=> 2</td>
+  </tr>
+  <tr>
+    <td>#isFinite()</td>
+    <td>Returns true or false either the input is a number or not</td>
+    <td>isFinite(Infinity);<br>#=> false</td>
+  </tr> 
+  <tr>
+    <td>#isNaN()</td>
+    <td>Returns true for anything that is not a number</td>
+    <td>isNaN(NaN);<br>#=> true</td>
+  </tr> 
+  <tr>
+    <td>#Number()</td>
+    <td>Converts input into a number</td>
+    <td>Number('a');<br>#=> NaN</td>
+  </tr> 
+  <tr>
+    <td>#parseFloat()</td>
+    <td>Converts input into a float</td>
+    <td>parseFloat('3.14');<br>#=> 3.14</td>
+  </tr> 
+  <tr>
+    <td>#parseInt()</td>
+    <td>Converts input into a integer</td>
+    <td>parseInt('3.14');<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#String()</td>
+    <td>Converts input into a string</td>
+    <td>String(3.14);<br>#=> "3.14"</td>
+  </tr> 
+</table>
+
+
+<p><strong>#splice(num1, num2, *args) examples</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array1</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span>
+</span><span class='line'><span class="nx">array1</span><span class="p">;</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">array2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array2</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">3.67</span> <span class="p">);</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[]</span>
+</span><span class='line'><span class="nx">array2</span><span class="p">;</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">3.67</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">array3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array3</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span> <span class="p">);</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span>
+</span><span class='line'><span class="nx">array3</span><span class="p">;</span>
+</span><span class='line'><span class="err">#</span><span class="o">=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span>  <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+Lastly, an additional note for the Array Enumerable. Coming from Ruby, enumerables were always used entirely along with being told to never use <strong>for loops</strong>. While in JavsScript, it seems to be the opposite where <strong>for loops</strong> are more prevalent. For all the Rubyist who shy away from <strong>for loops</strong> and would much rather use #forEach, well <strong>for loops</strong> aren&rsquo;t that bad. Compared to the #forEach method, <strong>for loops</strong> are about 95% faster.<br>
+<a href="http://jsperf.com/foreach-vs-loop">http://jsperf.com/foreach-vs-loop</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-12T16:51:50-05:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
+
+</div>
+
+
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2015/10/27/procs-and-lambdas/">
 		
 			Procs and Lambdas</a>

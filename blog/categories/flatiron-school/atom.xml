@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flatiron&nbsp;school | Afterhours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-10-28T07:12:47-04:00</updated>
+  <updated>2015-11-13T01:48:19-05:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -14,65 +14,456 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Procs and Lambdas]]></title>
-    <link href="http://chenghw.github.io/blog/2015/10/27/procs-and-lambdas/"/>
-    <updated>2015-10-27T09:15:10-04:00</updated>
-    <id>http://chenghw.github.io/blog/2015/10/27/procs-and-lambdas</id>
-    <content type="html"><![CDATA[<p>I am a big believer in fundamentals and foundation. In grade school I was horrific in Spanish. Being close to failing and having to repeat the previous years Spanish class, my parents sent me to summer school. I learned the fundamentals of the language and went into the following year understanding concepts which I didn't have the tools to comprehend previously.</p>
+    <title type="html"><![CDATA[JavaScript Toolbox]]></title>
+    <link href="http://chenghw.github.io/blog/2015/11/12/javascript-toolbox/"/>
+    <updated>2015-11-12T16:51:50-05:00</updated>
+    <id>http://chenghw.github.io/blog/2015/11/12/javascript-toolbox</id>
+    <content type="html"><![CDATA[<p>Coming from Ruby to JavaScript was more difficult than I thought it would be. The main difference to me: Documentation. Ruby has <a href='https://ruby-doc.org/'>ruby-doc.org</a> which has a well written and well organized dictionary for the entire language. While Javascript, I was primarily looking through <a href='http://www.w3schools.com/js/default.asp'>w3schools</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'>Modzilla&rsquo;s</a> documentation. Both not as well organized compared to Ruby&rsquo;s. A part of my learning process is knowing what is available to me. Nothing I found was to my liking so I decided to gather all the information on the basic methods. What I came up with was surprisingly small. The JavaScript methods library was tiny compared to Ruby. So I compiled most of the methods (ones that I saw useful for me at this moment) for Numbers, Strings and Arrays with definitions and examples along with each.</p>
+
+<table style="width:100%">
+  <strong>Number</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#toString()</td>
+    <td>Returns a string of that number</td>
+    <td>100.toString()<br>#=> "100"</td>
+  </tr>
+  <tr>
+    <td>#toExponential(num=0)</td>
+    <td>Returns the exponential of a float as a string, cannot be an integer (num option of how many decimal places)</td>
+    <td>150.0.toExponential(4)<br>#=> "1.5000e+2"</td>
+  </tr> 
+  <tr>
+    <td>#toFixed(num=0)</td>
+    <td>Returns a string with the decimal places fixed to the num and rounds</td>
+    <td>150.3261.toFixed(2)<br>#=> "150.33"</td>
+  </tr> 
+  <tr>
+    <td>#toPrecision(num=length)</td>
+    <td>Returns a string of the number with a fixed length from num</td>
+    <td>150.3261.toPrecision(2)<br>#=> "1.5e+2"</td>
+  </tr> 
+</table>
 
 
 
 
-<p>We were told a quote early on in the semester which has stuck with me. It was along the lines of, "The problem isn't with Rails, but with your Ruby." I took away to truly understand Rails was to truly understand the fundaments and the foundation that Rails was built on.</p>
+<table style="width:100%">
+  <strong>String</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#indexOf(string)</td>
+    <td>Returns the index of the <strong>first</strong> occurrence, returns -1 if none are found</td>
+    <td>'hello'.indexOf('l');<br>#=> 2</td>
+  </tr>
+  <tr>
+    <td>#indexLastOf(string)</td>
+    <td>Returns the index of the <strong>last</strong> occurrence, returns -1 if none are found</td>
+    <td>'welcome'.indexLastOf('e');<br>#=> 6</td>
+  </tr> 
+  <tr>
+    <td>#search(string)</td>
+    <td>Same as <strong>#indexOf(string)</strong> except it allows for the search of regular expressions</td>
+    <td>'t0'.search(/[0-9]/);<br>#=> 1</td>
+  </tr> 
+  <tr>
+    <td>#match(string)</td>
+    <td>Searches a string against a string or regular expression and returns the match in an array</td>
+    <td>'mY'.match(/[A-Z]/);<br>#=> ["Y"]</td>
+  </tr> 
+  <tr>
+    <td>#charAt(num)</td>
+    <td>Returns the character at the num index and returned empty string if out of range</td>
+    <td>'blog'.charAt(2);<br>#=> "o"</td>
+  </tr>
+  <tr>
+    <td>#split('x')</td>
+    <td>Splits string by 'x' into an array</td>
+    <td>'string'.split('');<br>#=> ["s", "t", "r", "i", "n", "g"]</td>
+  </tr>
+  <tr>
+    <td>#concat(*args)</td>
+    <td>Takes in as many string arguments and combines them into one</td>
+    <td>'java'.concat('scr', 'ipt');<br>#=> "javascript"</td>
+  </tr>
+  <tr>
+    <td>#slice(num1, num2)</td>
+    <td>Returns the sting from index num1 to num2 not including num2, can accept negative numbers</td>
+    <td>'table'.slice(1,-1);<br>#=> "abl"</td>
+  </tr>
+  <tr>
+    <td>#substring(num1, num2)</td>
+    <td>Same as <strong>#slice(num1, num2)</strong> except it cannot accept negative numbers</td>
+    <td>'enjoy'.substring(1, 3);<br>#=> "ej"</td>
+  </tr>
+  <tr>
+    <td>#substr(num1, num2)</td>
+    <td>Returns a string where the substring starts at index of num1 to num2 characters</td>
+    <td>'yourself'.substr(1, 4);<br>#=> "ours"</td>
+  </tr>
+  <tr>
+    <td>#replace(string1, string2)</td>
+    <td>Finds and replaces the first instance of string1 with string2, then returns the resulting string</td>
+    <td>'flatiron'.replace('iron', 'school');<br>#=> "flatschool"</td>
+  </tr>
+  <tr>
+    <td>#toUpperCase()</td>
+    <td>Uppercase the entire string</td>
+    <td>'flatiron'.upUpperCase();<br>#=> "FLATIRON"</td>
+  </tr>
+  <tr>
+    <td>#toLowerCase()</td>
+    <td>Lowercase the entire string</td>
+    <td>'FLATIRON'.upUpperCase();<br>#=> "flatiron"</td>
+  </tr>
+  <tr>
+    <td>#trim()</td>
+    <td>Removes white space at the beginning and end of a string</td>
+    <td>'  flatiron?  '.trim()<br>#=> "flatiron?"</td>
+  </tr>
+</table>
 
 
 
 
-<p>Before diving into Proc and Lambdas which I saw as one of those fundamentals/building blocks of the Ruby language, we must go over what a Block is first.</p>
+<table style="width:100%">
+  <strong>Array</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#concat(*arrs)</td>
+    <td>Join multiple arrays into one</td>
+    <td>[1,2,3].concat([4,5,6], [7,8,9]);<br>#=> [1,2,3,4,5,6,7,8,9]</td>
+  </tr>
+  <tr>
+    <td>#join('x')</td>
+    <td>Joins each array element into a string separated by 'x'</td>
+    <td>['flatiron', 'school'].join(' ');<br>#=> "flatiron school"</td>
+  </tr> 
+  <tr>
+    <td>#indexOf(ele)</td>
+    <td>Search array for the <strong>first</strong> matching element and returns the index, -1 if nothing is found</td>
+    <td>[1,2,3,2].indexOf(2);<br>#=> 1</td>
+  </tr> 
+  <tr>
+    <td>#lastIndexOf(ele)</td>
+    <td>Search array for <strong>last</strong> matching element and returns the index, -1 if nothing is found</td><td>[1,2,3,2].indexOf(2);<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#pop()</td>
+    <td>Removes and returns the last element of the array</td><td>[1,2,3,2].pop();<br>#=> 2</td>
+  </tr> 
+  <tr>
+    <td>#push(ele)</td>
+    <td>Adds element to the end of the array and returns the length of the new array</td><td>['h','e','l','l'].push('o');<br>#=> 5</td>
+  </tr> 
+  <tr>
+    <td>#reverse()</td>
+    <td>Reserve the elements of the array and returns the new array, this is destructive</td>
+    <td>[1,2,3].reverse();<br>#=> [3,2,1]</td>
+  </tr>
+  <tr>
+    <td>#shift()</td>
+    <td>Removes and returns the first element of the array</td>
+    <td>[1,2,3,2].shift();<br>#=> 1</td>
+  </tr>
+  <tr>
+    <td>#unshift()</td>
+    <td>Adds element to the beginning of the array and returns the length of the new array</td>
+    <td>[1,2,3,2].unshift(1);<br>#=> 5</td>
+  </tr>
+  <tr>
+    <td>#sort()</td>
+    <td>Sorts and returns the array, this is destructive</td>
+    <td>[3,2,1].sort();<br>#=> [1,2,3]</td>
+  </tr>
+    <tr>
+    <td>#slice(num1, num2)</td>
+    <td>Starts at index num1 and slices to index num2 not included, and returns the resulting array.</td>
+    <td>[0,1,2,3,4,5].slice(1,3);<br>#=> [1,2]</td>
+  </tr>
+  <tr>
+    <td>#splice(num1, num2, *args)</td>
+    <td>num1 represents the starting point, num2 represents the number of elements to remove and the *args is optional for any additions to be added to the array. Return value is an array of the removed elements</td>
+    <td>["h", "e", "l", "l", "o"].splice(1,2,9,8,7) => ["h", 9, 8, 7, "l", "o"] <br>#=> ["e", "l"]</td>
+  </tr>
+</table>
 
 
 
 
-<h2>Blocks</h2>
+<table style="width:100%">
+  <strong>Array Enumerable</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#every( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for each element</td>
+    <td>[1,2,3].every( function( element ) { return isFinite( element ) } );<br>#=> true</td>
+  </tr>
+  <tr>
+    <td>#filter( function( element, index, array ) { return condition } )</td>
+    <td>Like #select in Ruby, returns an array with elements who's callback function returned true</td>
+    <td>[1,2,3,4,5].filter( function( element ) { return element > 3 } );<br>#=> [4, 5]</td>
+  </tr> 
+  <tr>
+    <td>#forEach( function( element, index, array ) { do something } )</td>
+    <td>Like #each in Ruby, does something for each element in the array</td>
+    <td>[1,2].forEach( function( element, index, array ) { console.log( element ) } );<br>#=> 1 #=> 2</td>
+  </tr> 
+  <tr>
+    <td>#map( function( element, index, array ) { return something } )</td>
+    <td>Like #each in Ruby, creates an array of same length with returned values</td>
+    <td>[1,2].map( function( element, index, array ){ return element + index } );<br>#=> [1, 3]</td>
+  </tr> 
+  <tr>
+    <td>#reduce( function( previousValue, currentValue, index, array ) { return new previousValue }, initialValue )</td>
+    <td>Similar to #inject in Ruby, iterates through each element where previousValue initially starts off as initialValue and currentValue is the element. The return of the first iteration becomes the new previousValue and so on where the return is the final return.</td>
+    <td>[1,2,3].reduce( function( a, b, index, array ) { return a+b }, 10 );<br>#=> 16</td>
+  </tr> 
+  <tr>
+    <td>#some( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for at least one element</td>
+    <td>[1,2,3].some( function( element ) { return element/2 == 1 } );<br>#=> true</td>
+  </tr> 
+</table>
 
 
-<p>A block is a block of code or a code block, thus the name <strong>block</strong>. A list of instructions for your code to follow. Blocks can be identified by do...end or { }. There is a saying in Ruby land that everything in Ruby is an object, however that does not apply here. A block is not an object! Which brings us to procs and lambdas.</p>
 
 
+<table style="width:100%">
+  <strong>Global Methods</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#eval()</td>
+    <td>Evaluates and executes a string</td>
+    <td>eval('1+1');<br>#=> 2</td>
+  </tr>
+  <tr>
+    <td>#isFinite()</td>
+    <td>Returns true or false either the input is a number or not</td>
+    <td>isFinite(Infinity);<br>#=> false</td>
+  </tr> 
+  <tr>
+    <td>#isNaN()</td>
+    <td>Returns true for anything that is not a number</td>
+    <td>isNaN(NaN);<br>#=> true</td>
+  </tr> 
+  <tr>
+    <td>#Number()</td>
+    <td>Converts input into a number</td>
+    <td>Number('a');<br>#=> NaN</td>
+  </tr> 
+  <tr>
+    <td>#parseFloat()</td>
+    <td>Converts input into a float</td>
+    <td>parseFloat('3.14');<br>#=> 3.14</td>
+  </tr> 
+  <tr>
+    <td>#parseInt()</td>
+    <td>Converts input into a integer</td>
+    <td>parseInt('3.14');<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#String()</td>
+    <td>Converts input into a string</td>
+    <td>String(3.14);<br>#=> "3.14"</td>
+  </tr> 
+</table>
 
 
-<h2>Procs</h2>
-
-
-<p>Proc, stands for <strong>proc</strong>edure, is a block of code which is an object. This means procs can be passed through in method arguments, be something a method returns and have methods called upon them.</p>
-
-
-<pre><code class="ruby Creating a proc">square = Proc.new{ |x| x**2 }
-
-square = Proc.new do |x|
-  x**2
-end
-</code></pre>
-
-<p>Up until now we mostly been using blocks in enumerables. Procs can take the place of blocks in enumerables.</p>
-
-
-<pre><code class="ruby Using a proc in an enumerable">[ 1, 2, 3, 5, 7 ].map(&amp;square)
- =&gt; [1, 4, 9, 25, 49] 
-</code></pre>
-
-<p>But lets say you don&rsquo;t want to just pass in 1 value. Using an iterator now seems to not be the right tool for the job. There is the call method.
-<figure class='code'><figcaption><span>Call method</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><strong>#splice(num1, num2, *args) examples</strong>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span> <span class="mi">15</span> <span class="o">].</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">square</span><span class="p">)</span>
-</span><span class='line'> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">225</span><span class="o">]&lt;</span><span class="sr">/p&gt;</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array1</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt; square.call( 15 )</span>
-</span><span class='line'><span class="sr"> =&gt; 225</span>
-</span></code></pre></td></tr></table></div></figure></p>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">array1</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">array2</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array2</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">3.67</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">array2</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">3.67</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">array3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">array3</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">two</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">three</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">four</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">array3</span><span class="p">;</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;=&gt;</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">two</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">three</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span>  <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">four</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="mi">5</span> <span class="p">]</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="err">```</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">br</span><span class="o">&gt;</span>
+</span><span class='line'><span class="nx">Lastly</span><span class="p">,</span> <span class="nx">an</span> <span class="nx">additional</span> <span class="nx">note</span> <span class="k">for</span> <span class="nx">the</span> <span class="nb">Array</span> <span class="nx">Enumerable</span><span class="p">.</span> <span class="nx">Coming</span> <span class="nx">from</span> <span class="nx">Ruby</span><span class="p">,</span> <span class="nx">enumerables</span> <span class="nx">were</span> <span class="nx">always</span> <span class="nx">used</span> <span class="nx">entirely</span> <span class="nx">along</span> <span class="kd">with</span> <span class="nx">being</span> <span class="nx">told</span> <span class="nx">to</span> <span class="nx">never</span> <span class="nx">use</span> <span class="o">&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="k">for</span> <span class="nx">loops</span><span class="o">&lt;</span><span class="err">/strong&gt;. While in JavsScript, it seems to be the opposite where &lt;strong&gt;for loops&lt;/strong&gt; are more prevalent. For all the Rubyist who shy away from &lt;strong&gt;for loops&lt;/strong&gt; and would much rather use #forEach, well &lt;strong&gt;for loops&lt;/strong&gt; aren&amp;rsquo;t that bad. Compared to the #forEach method, &lt;strong&gt;for loops&lt;/strong&gt; are about 95% faster.&lt;br&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://jsperf.com/foreach-vs-loop&quot;</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//jsperf.com/foreach-vs-loop&lt;/a&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="p">]]</span><span class="o">&gt;&lt;</span><span class="err">/content&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="err">/entry&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">&lt;</span><span class="nx">entry</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">title</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="o">&gt;&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span><span class="nx">Procs</span> <span class="nx">and</span> <span class="nx">Lambdas</span><span class="p">]]</span><span class="o">&gt;&lt;</span><span class="err">/title&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://chenghw.github.io/blog/2015/10/27/procs-and-lambdas/&quot;</span><span class="o">/&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">updated</span><span class="o">&gt;</span><span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span><span class="nx">T09</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mi">10</span><span class="o">-</span><span class="mi">04</span><span class="o">:</span><span class="mi">00</span><span class="o">&lt;</span><span class="err">/updated&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">id</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">:</span><span class="c1">//chenghw.github.io/blog/2015/10/27/procs-and-lambdas&lt;/id&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="nx">content</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="o">&gt;&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">I</span> <span class="nx">am</span> <span class="nx">a</span> <span class="nx">big</span> <span class="nx">believer</span> <span class="k">in</span> <span class="nx">fundamentals</span> <span class="nx">and</span> <span class="nx">foundation</span><span class="p">.</span> <span class="nx">In</span> <span class="nx">grade</span> <span class="nx">school</span> <span class="nx">I</span> <span class="nx">was</span> <span class="nx">horrific</span> <span class="k">in</span> <span class="nx">Spanish</span><span class="p">.</span> <span class="nx">Being</span> <span class="nx">close</span> <span class="nx">to</span> <span class="nx">failing</span> <span class="nx">and</span> <span class="nx">having</span> <span class="nx">to</span> <span class="nx">repeat</span> <span class="nx">the</span> <span class="nx">previous</span> <span class="nx">years</span> <span class="nx">Spanish</span> <span class="kr">class</span><span class="p">,</span> <span class="nx">my</span> <span class="nx">parents</span> <span class="nx">sent</span> <span class="nx">me</span> <span class="nx">to</span> <span class="nx">summer</span> <span class="nx">school</span><span class="p">.</span> <span class="nx">I</span> <span class="nx">learned</span> <span class="nx">the</span> <span class="nx">fundamentals</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">language</span> <span class="nx">and</span> <span class="nx">went</span> <span class="nx">into</span> <span class="nx">the</span> <span class="nx">following</span> <span class="nx">year</span> <span class="nx">understanding</span> <span class="nx">concepts</span> <span class="nx">which</span> <span class="nx">I</span> <span class="nx">didn</span><span class="s1">&#39;t have the tools to comprehend previously.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s1">&lt;p&gt;We were told a quote early on in the semester which has stuck with me. It was along the lines of, &quot;The problem isn&#39;</span><span class="nx">t</span> <span class="kd">with</span> <span class="nx">Rails</span><span class="p">,</span> <span class="nx">but</span> <span class="kd">with</span> <span class="nx">your</span> <span class="nx">Ruby</span><span class="p">.</span><span class="s2">&quot; I took away to truly understand Rails was to truly understand the fundaments and the foundation that Rails was built on.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;p&gt;Before diving into Proc and Lambdas which I saw as one of those fundamentals/building blocks of the Ruby language, we must go over what a Block is first.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;h2&gt;Blocks&lt;/h2&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;p&gt;A block is a block of code or a code block, thus the name &lt;strong&gt;block&lt;/strong&gt;. A list of instructions for your code to follow. Blocks can be identified by do...end or { }. There is a saying in Ruby land that everything in Ruby is an object, however that does not apply here. A block is not an object! Which brings us to procs and lambdas.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;h2&gt;Procs&lt;/h2&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;p&gt;Proc, stands for &lt;strong&gt;proc&lt;/strong&gt;edure, is a block of code which is an object. This means procs can be passed through in method arguments, be something a method returns and have methods called upon them.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;pre&gt;&lt;code class=&quot;</span><span class="nx">ruby</span> <span class="nx">Creating</span> <span class="nx">a</span> <span class="nx">proc</span><span class="s2">&quot;&gt;square = Proc.new{ |x| x**2 }</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">square = Proc.new do |x|</span>
+</span><span class='line'><span class="s2">  x**2</span>
+</span><span class='line'><span class="s2">end</span>
+</span><span class='line'><span class="s2">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;p&gt;Up until now we mostly been using blocks in enumerables. Procs can take the place of blocks in enumerables.&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;pre&gt;&lt;code class=&quot;</span><span class="nx">ruby</span> <span class="nx">Using</span> <span class="nx">a</span> <span class="nx">proc</span> <span class="k">in</span> <span class="nx">an</span> <span class="nx">enumerable</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span> <span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">square</span><span class="p">)</span>
+</span><span class='line'> <span class="o">=&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="p">]</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">But</span> <span class="nx">lets</span> <span class="nx">say</span> <span class="nx">you</span> <span class="nx">don</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span><span class="nx">t</span> <span class="nx">want</span> <span class="nx">to</span> <span class="nx">just</span> <span class="nx">pass</span> <span class="k">in</span> <span class="mi">1</span> <span class="nx">value</span><span class="p">.</span> <span class="nx">Using</span> <span class="nx">an</span> <span class="nx">iterator</span> <span class="nx">now</span> <span class="nx">seems</span> <span class="nx">to</span> <span class="nx">not</span> <span class="nx">be</span> <span class="nx">the</span> <span class="nx">right</span> <span class="nx">tool</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">job</span><span class="p">.</span> <span class="nx">There</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">call</span> <span class="nx">method</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure> ruby Call method
+[ 15 ].map(&amp;square)
+ => [225]</p>
+
+<p> square.call( 15 )
+ => 225
+```</p>
 
 <p>Another benefit procs over blocks is that they can be returned.</p>
 
