@@ -129,7 +129,7 @@ Coming from Ruby to JavaScript was more difficult than I thought it would be. Th
   </tr>
   <tr>
     <td>#join('x')</td>
-    <td>Joins each array element into a string separated by 'x'</td>
+    <td>Joins each array element into a string separated by 'x' ('x' is optional, where the default is ',')</td>
     <td>['flatiron', 'school'].join(' ');<br>#=> "flatiron school"</td>
   </tr> 
   <tr>
