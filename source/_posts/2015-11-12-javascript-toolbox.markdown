@@ -5,12 +5,12 @@ date: 2015-11-12 16:51:50 -0500
 comments: true
 categories: "Flatiron&nbsp;School JavaScript"
 ---
-Coming from Ruby to JavaScript was more difficult than I thought it would be. The main difference: Documentation. Ruby has <a href='https://ruby-doc.org/'>ruby-doc.org</a> which has an well written and well sorted dictionary for all their methods. While Javascript, I was primarily looking through <a href='http://www.w3schools.com/js/default.asp'>w3schools</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'>Modzilla's</a> documentation. Both not as well organized than Ruby's. Apart of my learning process is coming into a language knowing all my methods and functions. Nothing I found was to my liking so I decided to gather all the information on my own. What I came up with was surprisingly small. The JavaScript method library was tiny compared to Ruby. So I dived into each of the JavaScript functions that I thought I may use.
+Coming from Ruby to JavaScript was more difficult than I thought it would be. The main difference to me: Documentation. Ruby has <a href='https://ruby-doc.org/'>ruby-doc.org</a> which has a well written and well organized dictionary for the entire language. While Javascript, I was primarily looking through <a href='http://www.w3schools.com/js/default.asp'>w3schools</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference'>Modzilla's</a> documentation. Both not as well organized compared to Ruby's. A part of my learning process is knowing what is available to me. Nothing I found was to my liking so I decided to gather all the information on the basic methods. What I came up with was surprisingly small. The JavaScript methods library was tiny compared to Ruby. So I compiled most of the methods (ones that I saw useful for me at this moment) for Numbers, Strings and Arrays with definitions and examples along with each.
 
 <table style="width:100%">
   <strong>Number</strong>
   <tr>
-    <th align='center'>Function</th>
+    <th align='center'>Method</th>
     <th align='center'>Description</th>
     <th align='center'>Example</th>
   </tr>
@@ -31,25 +31,26 @@ Coming from Ruby to JavaScript was more difficult than I thought it would be. Th
   </tr> 
   <tr>
     <td>#toPrecision(num=length)</td>
-    <td>Returns a string of the number with a fixed length from num</td><td>150.3261.toPrecision(2)<br>#=> "1.5e+2"</td>
+    <td>Returns a string of the number with a fixed length from num</td>
+    <td>150.3261.toPrecision(2)<br>#=> "1.5e+2"</td>
   </tr> 
 </table>
 
 <table style="width:100%">
   <strong>String</strong>
   <tr>
-    <th align='center'>Function</th>
+    <th align='center'>Method</th>
     <th align='center'>Description</th>
     <th align='center'>Example</th>
   </tr>
   <tr>
     <td>#indexOf(string)</td>
-    <td>Returns the index of the <strong>first</strong> occurence, returns -1 if none are found</td>
+    <td>Returns the index of the <strong>first</strong> occurrence, returns -1 if none are found</td>
     <td>'hello'.indexOf('l');<br>#=> 2</td>
   </tr>
   <tr>
     <td>#indexLastOf(string)</td>
-    <td>Returns the index of the <strong>last</strong> occurence, returns -1 if none are found</td>
+    <td>Returns the index of the <strong>last</strong> occurrence, returns -1 if none are found</td>
     <td>'welcome'.indexLastOf('e');<br>#=> 6</td>
   </tr> 
   <tr>
@@ -99,7 +100,7 @@ Coming from Ruby to JavaScript was more difficult than I thought it would be. Th
   </tr>
   <tr>
     <td>#toUpperCase()</td>
-    <td>Upcase the entire string</td>
+    <td>Uppercase the entire string</td>
     <td>'flatiron'.upUpperCase();<br>#=> "FLATIRON"</td>
   </tr>
   <tr>
@@ -117,27 +118,173 @@ Coming from Ruby to JavaScript was more difficult than I thought it would be. Th
 <table style="width:100%">
   <strong>Array</strong>
   <tr>
-    <th align='center'>Function</th>
+    <th align='center'>Method</th>
     <th align='center'>Description</th>
     <th align='center'>Example</th>
   </tr>
   <tr>
-    <td>#toString()</td>
-    <td>Returns a string of that number</td>
-    <td>100.toString()<br>#=> "100"</td>
+    <td>#concat(*arrs)</td>
+    <td>Join multiple arrays into one</td>
+    <td>[1,2,3].concat([4,5,6], [7,8,9]);<br>#=> [1,2,3,4,5,6,7,8,9]</td>
   </tr>
   <tr>
-    <td>#toExponential(num=0)</td>
-    <td>Returns the exponential of a float as a string, cannot be an integer (num option of how many decimal places)</td>
-    <td>150.0.toExponential(4)<br>#=> "1.5000e+2"</td>
+    <td>#join('x')</td>
+    <td>Joins each array element into a string separated by 'x'</td>
+    <td>['flatiron', 'school'].join(' ');<br>#=> "flatiron school"</td>
   </tr> 
   <tr>
-    <td>#toFixed(num=0)</td>
-    <td>Returns a string with the decimal places fixed to the num and rounds</td>
-    <td>150.3261.toFixed(2)<br>#=> "150.33"</td>
+    <td>#indexOf(ele)</td>
+    <td>Search array for the <strong>first</strong> matching element and returns the index, -1 if nothing is found</td>
+    <td>[1,2,3,2].indexOf(2);<br>#=> 1</td>
   </tr> 
   <tr>
-    <td>#toPrecision(num=length)</td>
-    <td>Returns a string of the number with a fixed length from num</td><td>150.3261.toPrecision(2)<br>#=> "1.5e+2"</td>
+    <td>#lastIndexOf(ele)</td>
+    <td>Search array for <strong>last</strong> matching element and returns the index, -1 if nothing is found</td><td>[1,2,3,2].indexOf(2);<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#pop()</td>
+    <td>Removes and returns the last element of the array</td><td>[1,2,3,2].pop();<br>#=> 2</td>
+  </tr> 
+  <tr>
+    <td>#push(ele)</td>
+    <td>Adds element to the end of the array and returns the length of the new array</td><td>['h','e','l','l'].push('o');<br>#=> 5</td>
+  </tr> 
+  <tr>
+    <td>#reverse()</td>
+    <td>Reserve the elements of the array and returns the new array, this is destructive</td>
+    <td>[1,2,3].reverse();<br>#=> [3,2,1]</td>
+  </tr>
+  <tr>
+    <td>#shift()</td>
+    <td>Removes and returns the first element of the array</td>
+    <td>[1,2,3,2].shift();<br>#=> 1</td>
+  </tr>
+  <tr>
+    <td>#unshift()</td>
+    <td>Adds element to the beginning of the array and returns the length of the new array</td>
+    <td>[1,2,3,2].unshift(1);<br>#=> 5</td>
+  </tr>
+  <tr>
+    <td>#sort()</td>
+    <td>Sorts and returns the array, this is destructive</td>
+    <td>[3,2,1].sort();<br>#=> [1,2,3]</td>
+  </tr>
+    <tr>
+    <td>#slice(num1, num2)</td>
+    <td>Starts at index num1 and slices to index num2 not included, and returns the resulting array.</td>
+    <td>[0,1,2,3,4,5].slice(1,3);<br>#=> [1,2]</td>
+  </tr>
+  <tr>
+    <td>#splice(num1, num2, *args)</td>
+    <td>num1 represents the starting point, num2 represents the number of elements to remove and the *args is optional for any additions to be added to the array. Return value is an array of the removed elements</td>
+    <td>["h", "e", "l", "l", "o"].splice(1,2,9,8,7) => ["h", 9, 8, 7, "l", "o"] <br>#=> ["e", "l"]</td>
+  </tr>
+</table>
+
+<table style="width:100%">
+  <strong>Array Enumerable</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#every( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for each element</td>
+    <td>[1,2,3].every( function( element ) { return isFinite( element ) } );<br>#=> true</td>
+  </tr>
+  <tr>
+    <td>#filter( function( element, index, array ) { return condition } )</td>
+    <td>Like #select in Ruby, returns an array with elements who's callback function returned true</td>
+    <td>[1,2,3,4,5].filter( function( element ) { return element > 3 } );<br>#=> [4, 5]</td>
+  </tr> 
+  <tr>
+    <td>#forEach( function( element, index, array ) { do something } )</td>
+    <td>Like #each in Ruby, does something for each element in the array</td>
+    <td>[1,2].forEach( function( element, index, array ) { console.log( element ) } );<br>#=> 1 #=> 2</td>
+  </tr> 
+  <tr>
+    <td>#map( function( element, index, array ) { return something } )</td>
+    <td>Like #each in Ruby, creates an array of same length with returned values</td>
+    <td>[1,2].map( function( element, index, array ){ return element + index } );<br>#=> [1, 3]</td>
+  </tr> 
+  <tr>
+    <td>#reduce( function( previousValue, currentValue, index, array ) { return new previousValue }, initialValue )</td>
+    <td>Similar to #inject in Ruby, iterates through each element where previousValue initially starts off as initialValue and currentValue is the element. The return of the first iteration becomes the new previousValue and so on where the return is the final return.</td>
+    <td>[1,2,3].reduce( function( a, b, index, array ) { return a+b }, 10 );<br>#=> 16</td>
+  </tr> 
+  <tr>
+    <td>#some( function( element, index, array ) { return condition } )</td>
+    <td>Evaluates to true if callback function evaluates to be true for at least one element</td>
+    <td>[1,2,3].some( function( element ) { return element/2 == 1 } );<br>#=> true</td>
   </tr> 
 </table>
+
+<table style="width:100%">
+  <strong>Global Methods</strong>
+  <tr>
+    <th align='center'>Method</th>
+    <th align='center'>Description</th>
+    <th align='center'>Example</th>
+  </tr>
+  <tr>
+    <td>#eval()</td>
+    <td>Evaluates and executes a string</td>
+    <td>eval('1+1');<br>#=> 2</td>
+  </tr>
+  <tr>
+    <td>#isFinite()</td>
+    <td>Returns true or false either the input is a number or not</td>
+    <td>isFinite(Infinity);<br>#=> false</td>
+  </tr> 
+  <tr>
+    <td>#isNaN()</td>
+    <td>Returns true for anything that is not a number</td>
+    <td>isNaN(NaN);<br>#=> true</td>
+  </tr> 
+  <tr>
+    <td>#Number()</td>
+    <td>Converts input into a number</td>
+    <td>Number('a');<br>#=> NaN</td>
+  </tr> 
+  <tr>
+    <td>#parseFloat()</td>
+    <td>Converts input into a float</td>
+    <td>parseFloat('3.14');<br>#=> 3.14</td>
+  </tr> 
+  <tr>
+    <td>#parseInt()</td>
+    <td>Converts input into a integer</td>
+    <td>parseInt('3.14');<br>#=> 3</td>
+  </tr> 
+  <tr>
+    <td>#String()</td>
+    <td>Converts input into a string</td>
+    <td>String(3.14);<br>#=> "3.14"</td>
+  </tr> 
+</table>
+
+<strong>#splice(num1, num2, *args) examples</strong>
+``` javascript 
+array1 = [ 1, 2, 3, 4, 5 ];
+array1.splice( 1, 2 );
+#=> [ 2, 3 ]
+array1;
+#=> [ 1, 4, 5 ] 
+
+array2 = [ 1, 2, 3, 4, 5 ];
+array2.splice( 2, 0, 3.33, 3.67 );
+#=> []
+array2;
+#=> [ 1, 2, 3, 3.33, 3.67, 4, 5 ] 
+
+array3 = [ 1, 2, 3, 4, 5 ];
+array3.splice( 1, 3, 'two', 'three', 'four' );
+#=> [ 2, 3, 4 ]
+array3;
+#=> [ 1, 'two', 'three',  'four', 5 ] 
+```
+<br>
+Lastly, an additional note for the Array Enumerable. Coming from Ruby, enumerables were always used entirely along with being told to never use <strong>for loops</strong>. While in JavsScript, it seems to be the opposite where <strong>for loops</strong> are more prevalent. For all the Rubyist who shy away from <strong>for loops</strong> and would much rather use #forEach, well <strong>for loops</strong> aren't that bad. Compared to the #forEach method, <strong>for loops</strong> are about 95% faster.<br>
+http://jsperf.com/foreach-vs-loop
+
