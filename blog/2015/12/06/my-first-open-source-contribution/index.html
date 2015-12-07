@@ -1,0 +1,212 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>My First Open Source Contribution  | After Hours Googling</title>
+
+<meta name="author" content="Ho Won Cheng"> 
+
+<meta name="description" content="A student's experiences of the Flatiron School and what he learns after 6PM through Google."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="After Hours Googling" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">After Hours Googling</a></h1>
+<h4>What I Learn After 6PM</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:chenghw.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">My First Open Source Contribution</h2>
+	<div class="entry-content"><p>Over this past weekend, I contributed to my first open source project! Special thanks to <a href='https://twitter.com/aidanfeldman/'>Aidan Feldman</a> and <a href='https://twitter.com/tutec/'>Tute Costa</a> for organizing this <a href='http://www.meetup.com/hackerhours/'>meetup</a> at the <a href='https://thoughtbot.com/'>Thoughtbot</a> offices in New York City.</p>
+
+<p>To me, contributing to a real world open source project seemed scary and far from reality. Who am I to contribute with only 10 weeks programming experience. I feel I am not the only person who thinks this. However, after this meetup I&rsquo;d like to say that that fear is gone and it have been replaced with excitement for the future. I want to share some tips I learned at the meetup from the mentors and the overall experience that got me over that fear. Hopefully this helps those in taking their first steps into the open source community.</p>
+
+<p>Quickly I&rsquo;m going to go over the work flow with open source projects (my open source hub of choice is <a href='https://www.github.com/'>github</a>).</p>
+
+<ol>
+  <li><strong>FORK</strong> their repo and clone from your fork. <strong>DO NOT</strong> clone straight from their repo!</li>
+  <li>Make a <strong>BRANCH</strong>! If you are going to start editing, make a branch off your forked repo.</li>
+  <li>Once you have made changes and wish to submit them to the creators, make a <strong>PULL</strong> request with an explanation of your edits.</li>
+</ol>
+
+
+
+
+<ol>
+  <li>Best open source projects for you may be those you already use</li>
+  <ul>
+    <li>You already know the purpose and uses</li>
+    <li>Reading through their source code will improve your understand of the project</li>
+    <li>Examples:</li>
+    <ul>
+      <li>Ruby gems</li>
+    </ul>
+  </ul>
+  <li>Going into open source projects you've never used</li>
+    <ul>
+      <li>No fear, just try to install the project</li>
+      <li>Installation and working with their readme may be where you can contribute</li>
+    </ul>
+  <li>Documentation</li>
+  <ul>
+    <li>Creators probably haven't installed their project on a machine since they first created it</li>
+    <li>Edit readme to help new comers with installation</li>
+  </ul>
+  <li>Next Steps</li>
+  <ul>
+    <li>Explore their project in how it works and its uses</li>
+    <li>Browse their source code</li>
+    <li>Take a look at their current issues</li>
+    <li>Or even raise an issue of your own</li>
+    <li>Rinse and repeat</li>
+  </ul>
+</ol>
+
+
+<p>Happy contributing!!</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-12-06T14:01:21-05:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>, <a class='category' href='/blog/categories/open-source/'>open&nbsp;source</a>
+
+</div>
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Ho Won Cheng
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

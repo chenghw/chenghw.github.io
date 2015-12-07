@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | After Hours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-11-13T01:56:31-05:00</updated>
+  <updated>2015-12-07T07:55:41-05:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -148,7 +148,7 @@
   </tr>
   <tr>
     <td>#join('x')</td>
-    <td>Joins each array element into a string separated by 'x'</td>
+    <td>Joins each array element into a string separated by 'x' ('x' is optional, where the default is ',')</td>
     <td>['flatiron', 'school'].join(' ');<br>#=> "flatiron school"</td>
   </tr> 
   <tr>

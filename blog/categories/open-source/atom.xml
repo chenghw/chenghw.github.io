@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: open&nbsp;source | After Hours Googling]]></title>
+  <link href="http://chenghw.github.io/blog/categories/open-source/atom.xml" rel="self"/>
+  <link href="http://chenghw.github.io/"/>
+  <updated>2015-12-07T07:55:41-05:00</updated>
+  <id>http://chenghw.github.io/</id>
+  <author>
+    <name><![CDATA[Ho Won Cheng]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My First Open Source Contribution]]></title>
+    <link href="http://chenghw.github.io/blog/2015/12/06/my-first-open-source-contribution/"/>
+    <updated>2015-12-06T14:01:21-05:00</updated>
+    <id>http://chenghw.github.io/blog/2015/12/06/my-first-open-source-contribution</id>
+    <content type="html"><![CDATA[<p>Over this past weekend, I contributed to my first open source project! Special thanks to <a href='https://twitter.com/aidanfeldman/'>Aidan Feldman</a> and <a href='https://twitter.com/tutec/'>Tute Costa</a> for organizing this <a href='http://www.meetup.com/hackerhours/'>meetup</a> at the <a href='https://thoughtbot.com/'>Thoughtbot</a> offices in New York City.</p>
+
+<p>To me, contributing to a real world open source project seemed scary and far from reality. Who am I to contribute with only 10 weeks programming experience. I feel I am not the only person who thinks this. However, after this meetup I&rsquo;d like to say that that fear is gone and it have been replaced with excitement for the future. I want to share some tips I learned at the meetup from the mentors and the overall experience that got me over that fear. Hopefully this helps those in taking their first steps into the open source community.</p>
+
+<p>Quickly I&rsquo;m going to go over the work flow with open source projects (my open source hub of choice is <a href='https://www.github.com/'>github</a>).</p>
+
+<ol>
+  <li><strong>FORK</strong> their repo and clone from your fork. <strong>DO NOT</strong> clone straight from their repo!</li>
+  <li>Make a <strong>BRANCH</strong>! If you are going to start editing, make a branch off your forked repo.</li>
+  <li>Once you have made changes and wish to submit them to the creators, make a <strong>PULL</strong> request with an explanation of your edits.</li>
+</ol>
+
+
+
+
+<ol>
+  <li>Best open source projects for you may be those you already use</li>
+  <ul>
+    <li>You already know the purpose and uses</li>
+    <li>Reading through their source code will improve your understand of the project</li>
+    <li>Examples:</li>
+    <ul>
+      <li>Ruby gems</li>
+    </ul>
+  </ul>
+  <li>Going into open source projects you've never used</li>
+    <ul>
+      <li>No fear, just try to install the project</li>
+      <li>Installation and working with their readme may be where you can contribute</li>
+    </ul>
+  <li>Documentation</li>
+  <ul>
+    <li>Creators probably haven't installed their project on a machine since they first created it</li>
+    <li>Edit readme to help new comers with installation</li>
+  </ul>
+  <li>Next Steps</li>
+  <ul>
+    <li>Explore their project in how it works and its uses</li>
+    <li>Browse their source code</li>
+    <li>Take a look at their current issues</li>
+    <li>Or even raise an issue of your own</li>
+    <li>Rinse and repeat</li>
+  </ul>
+</ol>
+
+
+<p>Happy contributing!!</p>
+]]></content>
+  </entry>
+  
+</feed>
