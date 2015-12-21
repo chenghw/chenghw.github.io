@@ -4,7 +4,7 @@
   <title><![CDATA[Category: flatiron&nbsp;school | After Hours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-12-07T07:55:41-05:00</updated>
+  <updated>2015-12-21T18:37:20-05:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -12,6 +12,217 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Binary Search Tree in Ruby]]></title>
+    <link href="http://chenghw.github.io/blog/2015/12/21/binary-search-tree-in-ruby/"/>
+    <updated>2015-12-21T15:01:14-05:00</updated>
+    <id>http://chenghw.github.io/blog/2015/12/21/binary-search-tree-in-ruby</id>
+    <content type="html"><![CDATA[<p>I am officially a Flatiron School graduate!! 12 weeks of learning Ruby, Object Oriented Programming, Test Driven Development, RSpec, Model View Controller, REST, CRUD, rack middleware, Sinatra, Ruby on Rails, Active Record, SQL, JavaScript, jQuery, AJAX, Handlebars and Ember.js. But most importantly coming out with the knowledge of how to approach and learn a new language. I look forward to my life after Flatiron and what new languages and frameworks I&rsquo;ll learn.</p>
+
+<p>I wanted to touch upon a topic we started covering in our last week at Flatiron, which were data structures and sorting algorithms. This week reminded me of my few years of taking computer science courses, creating our own stacks, queues and linked lists. Writing sorting algorithms such as quicksort, mergesort and bubble sort. I was ecstatic to find out we were covering these topics! Remembering how much fun I had with these is partially what got me to change careers and enroll in Flatiron School in the first place. Back in week 1 I asked myself, what kind of sort does Ruby use? I learned so many sorts long ago, which one is it? After some Google-ing, interestingly enough, Ruby uses the quicksort algorithm for its sort method over mergesort.</p>
+
+<h1>Binary Search Tree</h1>
+
+
+<p>So one of my favorite problems that I came across was constructing your own Binary Search Tree(BST). I am going to walk through my process, but first we need to know what a BST is. A BST is a series of connecting nodes, where each node contains data, a left and a right. The left and right are pointers to a subtree of nodes where left is less than or equal to and right is greater than.</p>
+
+<p>With this information we can start by creating our Binary Search Tree class which will represent our data structure. The walkthrough will consist of the structure and inserting into the BST.</p>
+
+<pre><code class="ruby">class BST
+
+end
+</code></pre>
+
+<p><br>
+Back to what a BST contains: data, left and right. Data will represent the data we store and left and right will represent subtrees.</p>
+
+<pre><code class="ruby">class BST
+  attr_accessor :data, :left, :right
+
+  def initialize(data)
+    @data = data
+  end
+end
+</code></pre>
+
+<p><br>
+Great! Now that we have the basic structure of the BST, we will need to be able to insert data into our BST class. Lets create a insert method which takes in 1 argument, data. I&rsquo;m going to go ahead and pseudocode my thought process of how I think it works.
+<code>ruby
+  def insert(data)
+    # 1 - Start at top of the tree
+    # 2 - Find which direction insert should be
+    # 3 - Check that direction if it is nil
+    # 3a - If nil insert into that location
+    # 3b - If not nil, change top of tree location to that node
+    # 4 - Repeat step 1
+  end
+</code>
+<br>
+We start at the top of the tree and keep track of the location. Following this, compare the data being inserted into our tree with the current location. This will determine if we are going left or right. If that direction results in a nil, we have reached our destination! We insert here, but if not we will need to change the current location to the top of the subtree.
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Start at top of the tree √</span>
+</span><span class='line'>    <span class="c1"># 2 - Find which direction insert should be √</span>
+</span><span class='line'>    <span class="c1"># 3 - Check that direction if it is nil √</span>
+</span><span class='line'>    <span class="c1"># 3a - If nil insert into that location √</span>
+</span><span class='line'>    <span class="c1"># 3b - If not nil, change top of tree location to that node √</span>
+</span><span class='line'>    <span class="c1"># 4 - Repeat step 1&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">current_location</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'><span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">data</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>    <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">current_location</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>    <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">current_location</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">br</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+</span><span class='line'><span class="no">We</span> <span class="n">want</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">doing</span> <span class="n">this</span> <span class="n">process</span> <span class="k">until</span> <span class="n">the</span> <span class="n">data</span> <span class="n">has</span> <span class="n">been</span> <span class="n">inserted</span> <span class="n">into</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">location</span><span class="o">.</span> <span class="no">Since</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">times</span> <span class="n">this</span> <span class="kp">loop</span> <span class="n">will</span> <span class="n">run</span> <span class="n">is</span> <span class="n">unknown</span><span class="p">,</span> <span class="n">a</span> <span class="k">while</span> <span class="ow">or</span> <span class="k">until</span> <span class="kp">loop</span> <span class="n">will</span> <span class="k">do</span> <span class="n">the</span> <span class="n">trick</span> <span class="n">with</span> <span class="n">a</span> <span class="n">placeholder</span> <span class="n">variable</span> <span class="k">for</span> <span class="n">confirmation</span> <span class="n">of</span> <span class="k">when</span> <span class="n">the</span> <span class="kp">loop</span> <span class="n">is</span> <span class="n">finished</span><span class="o">.</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt; ruby</span>
+</span><span class='line'><span class="sr">  def insert(data)</span>
+</span><span class='line'><span class="sr">    current_location = self</span>
+</span><span class='line'><span class="sr">    inserted = false&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">until</span> <span class="n">inserted</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">data</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>      <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">current_location</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">inserted</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>      <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">current_location</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">inserted</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">br</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+</span><span class='line'><span class="no">Running</span> <span class="n">some</span> <span class="n">tests</span> <span class="n">that</span> <span class="n">were</span> <span class="n">developed</span> <span class="n">prior</span> <span class="ow">and</span> <span class="n">eureka!</span><span class="o">!</span> <span class="no">It</span> <span class="n">works!</span> <span class="no">While</span> <span class="n">our</span> <span class="n">task</span> <span class="n">is</span> <span class="n">complete</span><span class="p">,</span> <span class="n">I</span><span class="err">&#39;</span><span class="n">m</span> <span class="ow">not</span> <span class="n">satisfied</span><span class="o">.</span> <span class="no">To</span> <span class="n">me</span> <span class="n">this</span> <span class="n">looks</span> <span class="n">dirty</span><span class="o">.</span> <span class="no">The</span> <span class="mi">2</span> <span class="n">variables</span> <span class="n">declared</span> <span class="n">outside</span> <span class="n">the</span> <span class="kp">loop</span><span class="p">,</span> <span class="n">the</span> <span class="kp">loop</span> <span class="n">itself</span><span class="p">,</span> <span class="n">the</span> <span class="n">seemingly</span> <span class="n">repetitive</span> <span class="n">code</span> <span class="n">inside</span> <span class="n">the</span> <span class="kp">loop</span> <span class="ow">and</span> <span class="n">all</span> <span class="n">the</span> <span class="k">if</span><span class="o">-</span><span class="k">else</span> <span class="n">statements!</span><span class="o">!</span> <span class="n">I</span> <span class="n">needed</span> <span class="n">to</span> <span class="n">refractor</span> <span class="n">this</span><span class="o">.</span> <span class="no">So</span> <span class="n">back</span> <span class="n">to</span> <span class="n">thinking</span> <span class="n">about</span> <span class="n">the</span> <span class="mi">5</span> <span class="n">steps</span><span class="p">,</span> <span class="n">it</span> <span class="n">appears</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">4</span> <span class="n">steps</span> <span class="n">are</span> <span class="n">repeated</span> <span class="n">on</span> <span class="no">BST</span> <span class="n">instances</span><span class="p">,</span> <span class="n">where</span> <span class="n">each</span> <span class="n">time</span> <span class="n">all</span> <span class="n">that</span> <span class="n">is</span> <span class="n">changing</span> <span class="n">is</span> <span class="n">the</span> <span class="no">BST</span> <span class="n">is</span> <span class="n">becoming</span> <span class="n">a</span> <span class="n">subtree</span> <span class="n">of</span> <span class="n">itself</span><span class="o">.</span> <span class="no">It</span> <span class="n">seems</span> <span class="n">like</span> <span class="n">this</span> <span class="n">can</span> <span class="n">be</span> <span class="n">done</span> <span class="n">recursively</span><span class="o">.</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt; ruby</span>
+</span><span class='line'><span class="sr">  def insert(data)</span>
+</span><span class='line'><span class="sr">    # 1 - Find which direction insert should be</span>
+</span><span class='line'><span class="sr">    # 2a - If nil insert into that location</span>
+</span><span class='line'><span class="sr">    # 2b - Else call insert method again on that subtree</span>
+</span><span class='line'><span class="sr">  end</span>
+</span><span class='line'><span class="sr">&lt;code&gt;</span>
+</span><span class='line'><span class="sr">&amp;lt;br&amp;gt;</span>
+</span><span class='line'><span class="sr">With recursion I am able to clean up the code to something I am satisfied with.</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;</span> <span class="n">ruby</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Find which direction insert should be √</span>
+</span><span class='line'>    <span class="c1"># 2a - If nil insert into that location √</span>
+</span><span class='line'>    <span class="c1"># 2b - Else call insert method again on that subtree √&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">data</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kp">nil</span> <span class="p">?</span> <span class="nb">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kp">nil</span> <span class="p">?</span> <span class="nb">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+<br>
+This was just the first step in creating the BST data structure. Next I&rsquo;ll explore deletion, searching and sorting in Binary Search Trees.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My First Open Source Contribution]]></title>

@@ -1,0 +1,375 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Binary Search Tree in Ruby  | After Hours Googling</title>
+
+<meta name="author" content="Ho Won Cheng"> 
+
+<meta name="description" content="A student's experiences of the Flatiron School and what he learns after 6PM through Google."> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="After Hours Googling" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">After Hours Googling</a></h1>
+<h4>What I Learn After 6PM</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:chenghw.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Binary Search Tree in Ruby</h2>
+	<div class="entry-content"><p>I am officially a Flatiron School graduate!! 12 weeks of learning Ruby, Object Oriented Programming, Test Driven Development, RSpec, Model View Controller, REST, CRUD, rack middleware, Sinatra, Ruby on Rails, Active Record, SQL, JavaScript, jQuery, AJAX, Handlebars and Ember.js. But most importantly coming out with the knowledge of how to approach and learn a new language. I look forward to my life after Flatiron and what new languages and frameworks I&rsquo;ll learn.</p>
+
+<p>I wanted to touch upon a topic we started covering in our last week at Flatiron, which were data structures and sorting algorithms. This week reminded me of my few years of taking computer science courses, creating our own stacks, queues and linked lists. Writing sorting algorithms such as quicksort, mergesort and bubble sort. I was ecstatic to find out we were covering these topics! Remembering how much fun I had with these is partially what got me to change careers and enroll in Flatiron School in the first place. Back in week 1 I asked myself, what kind of sort does Ruby use? I learned so many sorts long ago, which one is it? After some Google-ing, interestingly enough, Ruby uses the quicksort algorithm for its sort method over mergesort.</p>
+
+<h1>Binary Search Tree</h1>
+
+
+<p>So one of my favorite problems that I came across was constructing your own Binary Search Tree(BST). I am going to walk through my process, but first we need to know what a BST is. A BST is a series of connecting nodes, where each node contains data, a left and a right. The left and right are pointers to a subtree of nodes where left is less than or equal to and right is greater than.</p>
+
+<p>With this information we can start by creating our Binary Search Tree class which will represent our data structure. The walkthrough will consist of the structure and inserting into the BST.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">BST</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+Back to what a BST contains: data, left and right. Data will represent the data we store and left and right will represent subtrees.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">BST</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span> <span class="ss">:data</span><span class="p">,</span> <span class="ss">:left</span><span class="p">,</span> <span class="ss">:right</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@data</span> <span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+Great! Now that we have the basic structure of the BST, we will need to be able to insert data into our BST class. Lets create a insert method which takes in 1 argument, data. I&rsquo;m going to go ahead and pseudocode my thought process of how I think it works.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Start at top of the tree</span>
+</span><span class='line'>    <span class="c1"># 2 - Find which direction insert should be</span>
+</span><span class='line'>    <span class="c1"># 3 - Check that direction if it is nil</span>
+</span><span class='line'>    <span class="c1"># 3a - If nil insert into that location</span>
+</span><span class='line'>    <span class="c1"># 3b - If not nil, change top of tree location to that node</span>
+</span><span class='line'>    <span class="c1"># 4 - Repeat step 1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+We start at the top of the tree and keep track of the location. Following this, compare the data being inserted into our tree with the current location. This will determine if we are going left or right. If that direction results in a nil, we have reached our destination! We insert here, but if not we will need to change the current location to the top of the subtree.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Start at top of the tree √</span>
+</span><span class='line'>    <span class="c1"># 2 - Find which direction insert should be √</span>
+</span><span class='line'>    <span class="c1"># 3 - Check that direction if it is nil √</span>
+</span><span class='line'>    <span class="c1"># 3a - If nil insert into that location √</span>
+</span><span class='line'>    <span class="c1"># 3b - If not nil, change top of tree location to that node √</span>
+</span><span class='line'>    <span class="c1"># 4 - Repeat step 1</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">current_location</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">data</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>        <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="n">current_location</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>        <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="n">current_location</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+We want to keep doing this process until the data has been inserted into the correct location. Since the number of times this loop will run is unknown, a while or until loop will do the trick with a placeholder variable for confirmation of when the loop is finished.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">current_location</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="n">inserted</span> <span class="o">=</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">until</span> <span class="n">inserted</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">data</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>          <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">left</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>          <span class="n">current_location</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">inserted</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>          <span class="n">current_location</span> <span class="o">=</span> <span class="n">current_location</span><span class="o">.</span><span class="n">right</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>          <span class="n">current_location</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">inserted</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+Running some tests that were developed prior and eureka!! It works! While our task is complete, I&rsquo;m not satisfied. To me this looks dirty. The 2 variables declared outside the loop, the loop itself, the seemingly repetitive code inside the loop and all the if-else statements!! I needed to refractor this. So back to thinking about the 5 steps, it appears the first 4 steps are repeated on BST instances, where each time all that is changing is the BST is becoming a subtree of itself. It seems like this can be done recursively.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Find which direction insert should be</span>
+</span><span class='line'>    <span class="c1"># 2a - If nil insert into that location</span>
+</span><span class='line'>    <span class="c1"># 2b - Else call insert method again on that subtree</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+With recursion I am able to clean up the code to something I am satisfied with.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 1 - Find which direction insert should be √</span>
+</span><span class='line'>    <span class="c1"># 2a - If nil insert into that location √</span>
+</span><span class='line'>    <span class="c1"># 2b - Else call insert method again on that subtree √</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">data</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">left</span> <span class="o">==</span> <span class="kp">nil</span> <span class="p">?</span> <span class="nb">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">right</span> <span class="o">==</span> <span class="kp">nil</span> <span class="p">?</span> <span class="nb">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="no">BST</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><br>
+This was just the first step in creating the BST data structure. Next I&rsquo;ll explore deletion, searching and sorting in Binary Search Trees.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-12-21T15:01:14-05:00" pubdate data-updated="true"></time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/binary-search-tree/'>binary&nbsp;search&nbsp;tree</a>, <a class='category' href='/blog/categories/flatiron-school/'>flatiron&nbsp;school</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+
+</div>
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2015
+
+    Ho Won Cheng
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>
