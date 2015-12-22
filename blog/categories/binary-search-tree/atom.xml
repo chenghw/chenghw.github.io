@@ -4,7 +4,7 @@
   <title><![CDATA[Category: binary&nbsp;search&nbsp;tree | After Hours Googling]]></title>
   <link href="http://chenghw.github.io/blog/categories/binary-search-tree/atom.xml" rel="self"/>
   <link href="http://chenghw.github.io/"/>
-  <updated>2015-12-21T18:43:46-05:00</updated>
+  <updated>2015-12-22T13:33:07-05:00</updated>
   <id>http://chenghw.github.io/</id>
   <author>
     <name><![CDATA[Ho Won Cheng]]></name>
@@ -20,7 +20,7 @@
     <id>http://chenghw.github.io/blog/2015/12/21/binary-search-tree-in-ruby</id>
     <content type="html"><![CDATA[<p>I am officially a Flatiron School graduate!! 12 weeks of learning Ruby, Object Oriented Programming, Test Driven Development, RSpec, Model View Controller, REST, CRUD, rack middleware, Sinatra, Ruby on Rails, Active Record, SQL, JavaScript, jQuery, AJAX, Handlebars and Ember.js. But most importantly coming out with the knowledge of how to approach and learn a new language. I look forward to my life after Flatiron and what new languages and frameworks I&rsquo;ll learn.</p>
 
-<p>I wanted to touch upon a topic we started covering in our last week at Flatiron, which were data structures and sorting algorithms. This week reminded me of my few years of taking computer science courses, creating our own stacks, queues and linked lists. Writing sorting algorithms such as quicksort, mergesort and bubble sort. I was ecstatic to find out we were covering these topics! Remembering how much fun I had with these is partially what got me to change careers and enroll in Flatiron School in the first place. Back in week 1 I asked myself, what kind of sort does Ruby use? I learned so many sorts long ago, which one is it? After some Google-ing, interestingly enough, Ruby uses the quicksort algorithm for its sort method over mergesort.</p>
+<p>I wanted to touch upon a topic we started covering in our last week at Flatiron, which were data structures and sorting algorithms. This week reminded me of my few years of taking computer science courses, creating our own stacks, queues and linked lists. Writing sorting algorithms such as quicksort, mergesort and bubble sort. I was ecstatic to find out we were covering these topics! Remembering how much fun I had with these is partially what got me to change careers and enroll in Flatiron School in the first place. Even back in week 1 I was asking myself, what kind of sort does Ruby use? I learned so many sorts long ago, which one is it? After some Google-ing, interestingly enough, Ruby uses the quicksort algorithm for its sort method over mergesort.</p>
 
 <h1>Binary Search Tree</h1>
 
